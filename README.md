@@ -1,6 +1,6 @@
 # DIO - Projeto: Criando uma Api Rest com Kotlin e Persistência de Dados
 
-Projeto de uma API Rest com dois endpoints: /api/customers e /api/credits, utilizando Kotlin e o framework Spring com Spring Boot 3.
+Projeto de uma API REST com dois endpoints: /api/customers e /api/credits, utilizando Kotlin e o framework Spring com Spring Boot 3.
 
 ---
 
