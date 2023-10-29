@@ -25,6 +25,7 @@ import java.util.Random
 class CustomerServiceTest {
     @MockK
     lateinit var customerRepository: CustomerRepository
+
     @InjectMockKs
     lateinit var customerService: CustomerService
 
@@ -70,8 +71,7 @@ class CustomerServiceTest {
 
         // then
         Assertions.assertThatExceptionOfType(BusinessException::class.java)
-            .isThrownBy { customerService.findById(fakeId) }
-            .withMessage("Id $fakeId not found")
+            .isThrownBy { customerService.findById(fakeId) }.withMessage("Id $fakeId not found")
         verify(exactly = 1) { customerRepository.findById(fakeId) }
     }
 
@@ -102,16 +102,8 @@ class CustomerServiceTest {
         income: BigDecimal = BigDecimal.valueOf((1000.0)),
         id: Long = 1L
     ) = Customer(
-        firstName = firstName,
-        lastName = lastName,
-        cpf = cpf,
-        email = email,
-        password = password,
-        address = Address(
-            zipCode = zipCode,
-            street = street
-        ),
-        income = income,
-        id = id
+        firstName = firstName, lastName = lastName, cpf = cpf, email = email, password = password, address = Address(
+            zipCode = zipCode, street = street
+        ), income = income, id = id
     )
 }

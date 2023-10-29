@@ -22,14 +22,18 @@ import java.util.UUID
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class CreditRepositoryTest {
-    @Autowired lateinit var creditRepository: CreditRepository
-    @Autowired lateinit var testEntityManager: TestEntityManager
+    @Autowired
+    lateinit var creditRepository: CreditRepository
+
+    @Autowired
+    lateinit var testEntityManager: TestEntityManager
 
     private lateinit var customer: Customer
     private lateinit var credit1: Credit
     private lateinit var credit2: Credit
 
-    @BeforeEach fun setup () {
+    @BeforeEach
+    fun setup() {
         customer = testEntityManager.persist(buildCustomer())
         credit1 = testEntityManager.persist(buildCredit(customer = customer))
         credit2 = testEntityManager.persist(buildCredit(customer = customer))
@@ -96,8 +100,7 @@ class CreditRepositoryTest {
         email = email,
         password = password,
         address = Address(
-            zipCode = zipCode,
-            street = street
+            zipCode = zipCode, street = street
         ),
         income = income,
     )
